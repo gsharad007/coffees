@@ -39,7 +39,7 @@ fn generate_permutations_deterministically(
 
     while names.len() > 1 {
         let first = names.remove(0);
-        let second = names.remove(0 + offset % names.len());
+        let second = names.remove(offset % names.len());
         pairs.push(vec![first, second]);
     }
     if names.len() == 1 {
@@ -72,7 +72,7 @@ fn write_json_to_file(names_data: NamesData, input_file: &str) {
 }
 
 fn print_results(pairs: Vec<Vec<String>>, iteration: usize, greeting: String) {
-    println!("{}UnRandom Coffees {}", greeting, iteration);
+    println!("{greeting}UnRandom Coffees {iteration}");
     for pair in &pairs {
         println!("* {}", pair.join(" & "));
     }
@@ -181,86 +181,86 @@ mod tests {
         let pairs = generate_permutations_deterministically(names.clone(), 0);
         assert_eq!(pairs, comb1);
         assert_eq!(pairs.iter().any(|p| set.contains(p)), false);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 1);
         assert_eq!(pairs, comb2);
         assert_eq!(pairs.iter().any(|p| set.contains(p)), false);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 2);
         assert_eq!(pairs, comb3);
         assert_eq!(pairs.iter().any(|p| set.contains(p)), false);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 3);
         assert_eq!(pairs, comb4);
         assert_eq!(pairs.iter().any(|p| set.contains(p)), true);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 4);
         assert_eq!(pairs, comb5);
         assert_eq!(pairs.iter().any(|p| set.contains(p)), true);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 5);
         assert_eq!(pairs, comb6);
         assert_eq!(pairs.iter().any(|p| set.contains(p)), true);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 6);
         assert_eq!(pairs, comb7);
         assert_eq!(pairs.iter().all(|p| set.contains(p)), true);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 7);
         assert_eq!(pairs, comb8);
         assert_eq!(pairs.iter().all(|p| set.contains(p)), true);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 8);
         assert_eq!(pairs, comb9);
         assert_eq!(pairs.iter().all(|p| set.contains(p)), true);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 9);
         assert_eq!(pairs, comb10);
         assert_eq!(pairs.iter().all(|p| set.contains(p)), true);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 10);
         assert_eq!(pairs, comb11);
         assert_eq!(pairs.iter().all(|p| set.contains(p)), true);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
-        let pairs = generate_permutations_deterministically(names.clone(), 11);
+        let pairs = generate_permutations_deterministically(names, 11);
         assert_eq!(pairs, comb12);
         assert_eq!(pairs.iter().all(|p| set.contains(p)), true);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
     }
 
     #[test]
@@ -310,30 +310,30 @@ mod tests {
         let pairs = generate_permutations_deterministically(names.clone(), 0);
         assert_eq!(pairs, comb1);
         assert_eq!(pairs.iter().any(|p| set.contains(p)), false);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 1);
         assert_eq!(pairs, comb2);
         assert_eq!(pairs.iter().any(|p| set.contains(p)), false);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 2);
         assert_eq!(pairs, comb3);
         assert_eq!(pairs.iter().any(|p| set.contains(p)), false);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 3);
         assert_eq!(pairs, comb4);
         assert_eq!(pairs.iter().any(|p| set.contains(p)), false);
-        pairs.iter().for_each(|p| {
+        for p in pairs.iter() {
             set.insert(p.clone());
-        });
+        }
 
         let pairs = generate_permutations_deterministically(names.clone(), 4);
         assert_eq!(pairs, comb1);
@@ -356,7 +356,7 @@ mod tests {
         let pairs = generate_permutations_deterministically(names.clone(), 10);
         assert_eq!(pairs, comb3);
 
-        let pairs = generate_permutations_deterministically(names.clone(), 11);
+        let pairs = generate_permutations_deterministically(names, 11);
         assert_eq!(pairs, comb4);
     }
 
