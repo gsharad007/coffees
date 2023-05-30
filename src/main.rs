@@ -72,7 +72,7 @@ fn write_json_to_file(names_data: NamesData, input_file: &str) {
 }
 
 fn print_results(pairs: Vec<Vec<String>>, iteration: usize, greeting: String) {
-    println!("{}UnRandom Coffees Week {}", greeting, iteration);
+    println!("{}UnRandom Coffees {}", greeting, iteration);
     for pair in &pairs {
         println!("* {}", pair.join(" & "));
     }
