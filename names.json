@@ -1,10 +1,25 @@
 {
   "names": [
-    "Alice",
-    "Bob",
-    "Charlie",
-    "Dave",
-    "Eve"
+    "@Amanda Diaz",
+    "@Artyom O'Rielly",
+    "@Arwen",
+    "@Brian Cummings",
+    "@Carolyn Lu",
+    "@Donya Abramo",
+    "@Jessica Damerst",
+    "@Laura Nadal",
+    "@Lukas Nowaczek",
+    "@Mark Verkerk",
+    "@Milan Singh",
+    "@Rob Mostyn",
+    "@Sabrina Urban",
+    "@Seth Dickinson",
+    "@Sharad",
+    "@Si Donbavand",
+    "@Skjalg",
+    "@Ted Gill",
+    "@Virginia"
   ],
-  "iteration": 4
+  "greetings": "TEST: Fun chill time quote\n",
+  "iteration": 3
 }
